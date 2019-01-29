@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "bft-instagram": {
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "prod": "https://api.graph.cool/relay/v1/cjrhjrb4kagxd0175ahimc3yv"
+        }
+      }
+    }
+  }
+}

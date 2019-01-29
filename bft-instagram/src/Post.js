@@ -7,7 +7,7 @@ class Post extends React.Component{
     return(
       <div className='pa3bg-black-05 ma3'>
         <div className='w-100' style={{
-            backgroundImage:`url(${this.props.post.imageUrl})`,
+            backgroundImage:`url(${this.props.post.imgUrl})`,
             backgroundSize:'cover',
             paddingBottom: '100%',
           }}/>
@@ -28,6 +28,6 @@ export default createFragmentContainer(Post, graphql`
   fragment Post_post on Post {
     id
     description
-    imageUrl
+    imgUrl
   }
 `)

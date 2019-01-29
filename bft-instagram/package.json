@@ -44,6 +44,7 @@
     "react-dev-utils": "^7.0.1",
     "react-dom": "^16.7.0",
     "react-relay": "^2.0.0",
+    "relay-runtime": "^2.0.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
@@ -57,7 +58,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "relay": "relay-compiler --src ./src --schema ./graphcool/schema.graphql"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -70,6 +72,7 @@
   ],
   "devDependencies": {
     "babel-plugin-relay": "^2.0.0",
+    "graphql": "^14.1.1",
     "relay-compiler": "^2.0.0"
   },
   "jest": {

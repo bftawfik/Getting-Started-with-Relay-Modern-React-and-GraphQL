@@ -1,0 +1,322 @@
+# source: https://api.graph.cool/relay/v1/cjrhjrb4kagxd0175ahimc3yv
+# timestamp: Tue Jan 29 2019 12:53:07 GMT+0200 (Eastern European Standard Time)
+
+input CreatePost {
+  description: String!
+  imgUrl: String!
+}
+
+input CreatePostInput {
+  description: String!
+  imgUrl: String!
+  clientMutationId: String!
+}
+
+type CreatePostPayload {
+  viewer: Viewer!
+  clientMutationId: String!
+  post: Post
+  edge: PostEdge
+}
+
+scalar DateTime
+
+input DeletePostInput {
+  id: ID!
+  clientMutationId: String!
+}
+
+type DeletePostPayload {
+  viewer: Viewer!
+  clientMutationId: String!
+  post: Post
+  edge: PostEdge
+  deletedId: ID
+}
+
+"""HelloPayload"""
+type HelloPayload {
+  message: String!
+}
+
+input InvokeFunctionInput {
+  name: String!
+  input: String!
+  clientMutationId: String
+}
+
+type InvokeFunctionPayload {
+  result: String!
+  clientMutationId: String
+}
+
+type Mutation {
+  createPost(input: CreatePostInput!): CreatePostPayload
+  updatePost(input: UpdatePostInput!): UpdatePostPayload
+  updateOrCreatePost(input: UpdateOrCreatePostInput!): UpdateOrCreatePostPayload
+  deletePost(input: DeletePostInput!): DeletePostPayload
+  invokeFunction(input: InvokeFunctionInput!): InvokeFunctionPayload
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Post implements Node {
+  createdAt: DateTime!
+  description: String!
+  id: ID!
+  imgUrl: String!
+}
+
+"""A connection to a list of items."""
+type PostConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PostEdge]
+
+  """Count of filtered result set without considering pagination arguments"""
+  count: Int!
+}
+
+"""An edge in a connection."""
+type PostEdge {
+  """The item at the end of the edge."""
+  node: Post!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+input PostFilter {
+  """Logical AND on all given filters."""
+  AND: [PostFilter!]
+
+  """Logical OR on all given filters."""
+  OR: [PostFilter!]
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  imgUrl: String
+
+  """All values that are not equal to given value."""
+  imgUrl_not: String
+
+  """All values that are contained in given list."""
+  imgUrl_in: [String!]
+
+  """All values that are not contained in given list."""
+  imgUrl_not_in: [String!]
+
+  """All values less than the given value."""
+  imgUrl_lt: String
+
+  """All values less than or equal the given value."""
+  imgUrl_lte: String
+
+  """All values greater than the given value."""
+  imgUrl_gt: String
+
+  """All values greater than or equal the given value."""
+  imgUrl_gte: String
+
+  """All values containing the given string."""
+  imgUrl_contains: String
+
+  """All values not containing the given string."""
+  imgUrl_not_contains: String
+
+  """All values starting with the given string."""
+  imgUrl_starts_with: String
+
+  """All values not starting with the given string."""
+  imgUrl_not_starts_with: String
+
+  """All values ending with the given string."""
+  imgUrl_ends_with: String
+
+  """All values not ending with the given string."""
+  imgUrl_not_ends_with: String
+}
+
+enum PostOrderBy {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  imgUrl_ASC
+  imgUrl_DESC
+}
+
+type Query {
+  viewer: Viewer!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+input UpdateOrCreatePostInput {
+  update: UpdatePost!
+  create: CreatePost!
+  clientMutationId: String!
+}
+
+type UpdateOrCreatePostPayload {
+  viewer: Viewer!
+  clientMutationId: String!
+  post: Post
+  edge: PostEdge
+}
+
+input UpdatePost {
+  description: String
+  id: ID!
+  imgUrl: String
+}
+
+input UpdatePostInput {
+  description: String
+  id: ID!
+  imgUrl: String
+  clientMutationId: String!
+}
+
+type UpdatePostPayload {
+  viewer: Viewer!
+  clientMutationId: String!
+  post: Post
+  edge: PostEdge
+}
+
+"""This is the famous Relay viewer object"""
+type Viewer {
+  allPosts(filter: PostFilter, orderBy: PostOrderBy, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  Post(id: ID): Post
+
+  """hello"""
+  hello(name: String): HelloPayload
+  id: ID!
+}
