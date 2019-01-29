@@ -1,0 +1,11 @@
+# The following types define the data model of the example service
+# based on which the GraphQL API is generated
+
+
+# Uncomment the model below as well
+
+type Post @model {
+  id: ID! @isUnique
+  description: String!
+  imgUrl: String!
+}
